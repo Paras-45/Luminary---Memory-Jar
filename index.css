@@ -1,0 +1,84 @@
+/* ═══════════════════════════════════════
+   MEMORY JAR — Global Styles (index.css)
+   ═══════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cream:        #F5EFE0;
+  --warm-white:   #FAF7F2;
+  --amber:        #C8873A;
+  --amber-light:  #E8A85A;
+  --amber-glow:   rgba(200, 135, 58, 0.18);
+  --brown-deep:   #3A2410;
+  --brown-mid:    #7A4A20;
+  --brown-light:  #B07040;
+  --glass:        rgba(255, 248, 235, 0.55);
+  --glass-border: rgba(200, 135, 58, 0.25);
+  --shadow:       rgba(58, 36, 16, 0.15);
+  --text-main:    #2C1A08;
+  --text-sub:     #7A5835;
+  --text-muted:   #B09060;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Background radial gradients */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 20%, rgba(200,135,58,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 85% 75%, rgba(139,165,200,0.08) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Paper grain texture */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Keyframe animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes slideUp {
+  from { transform: translateX(-50%) translateY(80px); }
+  to   { transform: translateX(-50%) translateY(0); }
+}
